@@ -4,6 +4,7 @@
 #include "Common/Vec3.h"
 #include "Common/Shader.h"
 #include <vector>
+#include <string>
 
 class Tris
 {
@@ -25,27 +26,37 @@ public:
 
 	void BindData();
 
+	void BindVertexArray();
+	void UnbindVertexArray();
+
+	void BindBufferData();
+	void UnBindBufferData();
+
 	void UnbindData();
 
 	~Tris();
 
 private:
 
-	const GLchar* vertShader = "											\n\
+	std::string vertShader = "												\n\
 		#version 330														\n\
 		layout (location = 0) in vec3 pos;									\n\
 		void main()															\n\
 		{																	\n\
-			gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0);	    \n\
+			gl_Position = vec4(pos, 1.0);	    \n\
 		}";
 
-	const GLchar* fragShader = "											\n\
+	std::string fragShader = "												\n\
 		#version 330														\n\
 		out vec4 color;														\n\
 		void main()															\n\
 		{																	\n\
-			color = vec4(0.0,0.0,1.0, 1.0);									\n\
+			color = vec4(1.0,0.0,1.0, 1.0);									\n\
 		}";
 
 	Vec3* points;
+
+	Shader* shader;
+
+	void ConstructVertices();
 };

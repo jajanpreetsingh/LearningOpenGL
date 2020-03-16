@@ -2,23 +2,31 @@
 
 #include "GL/glew.h"
 #include <string>
+#include <map>
 
 class Shader
 {
 public:
 
-	GLuint program;
-
-	std::string vertShader;
-	std::string fragShader;
-
-	Shader(const GLchar* vertSource, const GLchar* fragSource);
+	Shader(std::string vertSource, std::string fragSource);
 
 	bool LinkShader();
 
-	bool AddAndCompileShader(const GLchar* source, GLenum type);
+	bool AddAndCompileShader(GLenum type);
+
+	void UseShaderProgram();
+
+	void UnbindShaderProgram();
 
 	~Shader();
 
 private:
+
+	std::map<GLenum, std::string> shaderSources;
+
+	GLuint program;
+
+	const GLchar* GetShaderByKey(GLenum key);
+
+	void AddShaderSourceToMap(GLenum key, std::string source);
 };

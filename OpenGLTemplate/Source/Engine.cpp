@@ -7,7 +7,7 @@ void Engine::ProcessInput()
 }
 
 void Engine::Update()
-{	
+{
 }
 
 void Engine::Draw()
@@ -40,5 +40,3 @@ float Engine::GetTotalTime() const
 {
 	return totalGameTimeInSec;
 }
-
-

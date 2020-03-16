@@ -24,7 +24,6 @@ public:
 
 	~Screen();
 
-
 private:
 	int height = 0;
 	int width = 0;

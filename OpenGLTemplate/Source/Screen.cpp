@@ -18,8 +18,6 @@ Screen::Screen()
 	InitializeGLEW();
 
 	CreateTriagle();
-
-	//CompileShaders();
 }
 
 void Screen::Update()
@@ -29,20 +27,7 @@ void Screen::Update()
 	glClearColor(0, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	if (shader != nullptr)
-	{
-		//bind shader program
-		glUseProgram(shader->program);
-
-		glBindVertexArray(tris->vao);
-
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-
-		glBindVertexArray(0);
-
-		//unbind shader program
-		glUseProgram(0);
-	}
+	tris->Draw();
 
 	glfwSwapBuffers(mainWindow);
 }

@@ -3,16 +3,16 @@
 #include "Common/Shader.h"
 #include <iostream>
 
-Shader::Shader(const GLchar* vertSource, const GLchar* fragSource)
+Shader::Shader(std::string vertSource, std::string fragSource)
 {
-	this->vertShader = std::string(vertSource);
-	this->fragShader = std::string(fragSource);
+	AddShaderSourceToMap(GL_VERTEX_SHADER, vertSource);
+	AddShaderSourceToMap(GL_FRAGMENT_SHADER, fragSource);
 
 	program = glCreateProgram();
 }
 
 bool Shader::LinkShader()
-{	
+{
 	GLint result = 0;
 	GLchar log[1024] = { 0 };
 
@@ -39,8 +39,10 @@ bool Shader::LinkShader()
 	return true;
 }
 
-bool Shader::AddAndCompileShader(const GLchar* source, GLenum type)
+bool Shader::AddAndCompileShader(GLenum type)
 {
+	const GLchar* source = GetShaderByKey(type);
+
 	GLuint shader = glCreateShader(type);
 
 	GLint codeLength[] = { strlen(source) };
@@ -51,20 +53,40 @@ bool Shader::AddAndCompileShader(const GLchar* source, GLenum type)
 
 	GLint result = 0;
 	GLchar log[1024] = { 0 };
-	
+
 	glLinkProgram(shader);
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &result);
 
 	if (!result)
 	{
 		glGetShaderInfoLog(shader, sizeof(log), nullptr, log);
-		std::cout << "Error Compiling Shader !!!" << std::endl << log << std::endl;
+		std::cout << "Error Compiling Shader of type " << type << " !!!" << std::endl << log << std::endl;
 		return false;
 	}
 
 	glAttachShader(program, shader);
 
 	return true;
+}
+
+const GLchar* Shader::GetShaderByKey(GLenum key)
+{
+	return shaderSources[key].c_str();
+}
+
+void Shader::AddShaderSourceToMap(GLenum key, std::string source)
+{
+	shaderSources[key] = source;
+}
+
+void Shader::UseShaderProgram()
+{
+	glUseProgram(program);
+}
+
+void Shader::UnbindShaderProgram()
+{
+	glUseProgram(0);
 }
 
 Shader::~Shader()

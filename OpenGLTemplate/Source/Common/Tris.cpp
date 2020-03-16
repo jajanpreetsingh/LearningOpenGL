@@ -14,10 +14,10 @@ Tris::Tris(Vec3 a, Vec3 b, Vec3 c)
 	points[1] = b;
 	points[2] = c;
 
-	Draw();
+	ConstructVertices();
 }
 
-void Tris::Draw()
+void Tris::ConstructVertices()
 {
 	vertices.push_back(points[0][0]);
 	vertices.push_back(points[0][1]);
@@ -32,20 +32,40 @@ void Tris::Draw()
 	vertices.push_back(points[2][2]);
 
 	BindData();
+
+	shader = ConstructShader();
+}
+
+void Tris::Draw()
+{
+	if (shader == nullptr)
+	{
+		return;
+	}
+
+	shader->UseShaderProgram();
+
+	BindVertexArray();
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	UnbindVertexArray();
+
+	shader->UnbindShaderProgram();
 }
 
 Shader* Tris::ConstructShader()
 {
 	Shader* shader = new Shader(vertShader, fragShader);
 
-	bool result = shader->AddAndCompileShader(shader->vertShader.c_str(), GL_VERTEX_SHADER);
+	bool result = shader->AddAndCompileShader(GL_VERTEX_SHADER);
 
 	if (!result)
 	{
 		return nullptr;
 	}
 
-	result = shader->AddAndCompileShader(shader->fragShader.c_str(), GL_FRAGMENT_SHADER);
+	result = shader->AddAndCompileShader(GL_FRAGMENT_SHADER);
 
 	if (!result)
 	{
@@ -62,18 +82,37 @@ Shader* Tris::ConstructShader()
 	return shader;
 }
 
-void Tris::BindData()
+void Tris::BindVertexArray()
 {
-	//generate "n"(=1) vertex arrays and 
-	//pass the pointers to those n arrays(1 in our case) 
-	glGenVertexArrays(1, &vao);
-
 	//Bind the vertex array you want to use
 	glBindVertexArray(vao);
+}
+
+void Tris::UnbindVertexArray()
+{
+	glBindVertexArray(0);
+}
+
+void Tris::BindBufferData()
+{
+	glBindBuffer(GL_ARRAY_BUFFER, vboPosition); //GL_ARRAY_BUFFER is one of may targets(or say ways) to bind buffers
+}
+
+void Tris::UnBindBufferData()
+{
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void Tris::BindData()
+{
+	//generate "n"(=1) vertex arrays and
+	//pass the pointer(vao) to those n arrays(n = 1 in our case)
+	glGenVertexArrays(1, &vao);
+	BindVertexArray();
 
 	//SIMILARLY, generate n(=1 in our case); buffers and bind the first one
 	glGenBuffers(1, &vboPosition);
-	glBindBuffer(GL_ARRAY_BUFFER, vboPosition); //GL_ARRAY_BUFFER is one of may targets(or say ways) to bind buffers
+	BindBufferData();
 
 	//bind data
 	int size = sizeof(float) * vertices.size(); // or 9*sizeof(float);
@@ -100,8 +139,8 @@ void Tris::BindData()
 void Tris::UnbindData()
 {
 	//Unbind data vao and vboPosition
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+	UnBindBufferData();
+	UnbindVertexArray();
 }
 
 Tris::~Tris()
