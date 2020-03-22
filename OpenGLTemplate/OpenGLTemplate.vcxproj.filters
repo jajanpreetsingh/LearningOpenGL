@@ -28,6 +28,15 @@
     <Filter Include="Header Files\Common">
       <UniqueIdentifier>{0f9a3d37-ca17-43b3-8170-9f9a2dc91b48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils\Matrix">
+      <UniqueIdentifier>{c0a9d393-bd2e-4b3c-af90-351ce99d788d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Matrix">
+      <UniqueIdentifier>{c150e156-9834-4ed4-ac3b-831f4a0ec673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{55924cf8-2a0e-4b6d-97b2-2082d69d4c0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLTemplate.cpp">
@@ -56,6 +65,15 @@
     </ClCompile>
     <ClCompile Include="Source\Common\Shader.cpp">
       <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utils\Matrix\Matrix.cpp">
+      <Filter>Source Files\Utils\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\Geometry.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utils\LoadedAssets.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,5 +104,25 @@
     <ClInclude Include="Headers\Common\Shader.h">
       <Filter>Header Files\Common</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Utils\Matrix\Matrix.h">
+      <Filter>Header Files\Utils\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Common\Geometry.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\LoadedAssets.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\Debug.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\trisFrag.shader">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Resources\Shaders\trisVert.shader">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ExternalLibs/glm/;$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ExternalLibs/glm/;$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ExternalLibs/glm/;$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +151,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ExternalLibs/glm/;$(SolutionDir)/Headers/;$(SolutionDir)/ExternalLibs/glfw/include/;$(SolutionDir)/ExternalLibs/glew/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="OpenGLTemplate.cpp" />
     <ClCompile Include="Source\Common\Constants.cpp" />
+    <ClCompile Include="Source\Common\Geometry.cpp" />
     <ClCompile Include="Source\Common\Shader.cpp" />
     <ClCompile Include="Source\Common\Tris.cpp" />
     <ClCompile Include="Source\Common\Vec1.cpp" />
@@ -172,9 +173,12 @@
     <ClCompile Include="Source\Common\Vec3.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\Screen.cpp" />
+    <ClCompile Include="Source\Utils\LoadedAssets.cpp" />
+    <ClCompile Include="Source\Utils\Matrix\Matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Common\Constants.h" />
+    <ClInclude Include="Headers\Common\Geometry.h" />
     <ClInclude Include="Headers\Common\Shader.h" />
     <ClInclude Include="Headers\Common\Tris.h" />
     <ClInclude Include="Headers\Common\Vec1.h" />
@@ -183,6 +187,13 @@
     <ClInclude Include="Headers\Engine.h" />
     <ClInclude Include="Headers\Interfaces\Updatable.h" />
     <ClInclude Include="Headers\Screen.h" />
+    <ClInclude Include="Headers\Utils\Debug.h" />
+    <ClInclude Include="Headers\Utils\LoadedAssets.h" />
+    <ClInclude Include="Headers\Utils\Matrix\Matrix.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\trisFrag.shader" />
+    <None Include="Resources\Shaders\trisVert.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

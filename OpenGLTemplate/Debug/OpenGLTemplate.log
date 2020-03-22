@@ -1,5 +1,3 @@
-﻿  OpenGLTemplate.cpp
-  Engine.cpp
-  Screen.cpp
-  Generating Code...
-  OpenGLTemplate.vcxproj -> E:\Projects\OpenGL\OpenGLTemplate\Debug\OpenGLTemplate.exe
+﻿  Screen.cpp
+E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Source\Screen.cpp(115,65): warning C4305:  'argument': truncation from 'double' to 'float'
+  OpenGLTemplate.vcxproj -> E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Debug\OpenGLTemplate.exe

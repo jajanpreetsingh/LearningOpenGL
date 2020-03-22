@@ -16,7 +16,7 @@ public:
 	int bufferWidth = 0;
 
 	Tris* tris;
-	Shader* shader;
+	Geometry* pyramid;
 
 	Screen();
 
@@ -35,4 +35,8 @@ private:
 	void SwitchToThisWindow();
 
 	void CreateTriagle();
+
+	void CreatePyramid();
+
+	void SetUniforms();
 };

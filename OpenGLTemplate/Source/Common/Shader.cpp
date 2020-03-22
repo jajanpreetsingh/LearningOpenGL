@@ -66,6 +66,8 @@ bool Shader::AddAndCompileShader(GLenum type)
 
 	glAttachShader(program, shader);
 
+	glDeleteShader(shader);
+
 	return true;
 }
 
@@ -77,6 +79,16 @@ const GLchar* Shader::GetShaderByKey(GLenum key)
 void Shader::AddShaderSourceToMap(GLenum key, std::string source)
 {
 	shaderSources[key] = source;
+}
+
+GLuint Shader::GetUniformLocation(std::string uniformName)
+{
+	return glGetUniformLocation(program, uniformName.c_str());
+}
+
+void Shader::SetUniformFloat(std::string uniformName, float val)
+{
+	glUniform1f(uniformLocationMap[uniformName], val);
 }
 
 void Shader::UseShaderProgram()
@@ -91,4 +103,5 @@ void Shader::UnbindShaderProgram()
 
 Shader::~Shader()
 {
+	glDeleteProgram(program);
 }
