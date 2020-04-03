@@ -24,6 +24,8 @@ Screen::Screen()
 	InitializeGLEW();
 
 	CreatePyramid();
+
+	CreateTriagle();
 }
 
 void Screen::Update()
@@ -33,7 +35,14 @@ void Screen::Update()
 	glClearColor(0, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	pyramid->shader->UseShaderProgram();
+	SetUniforms();
+
 	pyramid->Update();
+
+	pyramid->shader->UnbindShaderProgram();
+
+	tris->Update();
 
 	glfwSwapBuffers(mainWindow);
 }
@@ -155,6 +164,7 @@ void Screen::CreatePyramid()
 
 void Screen::SetUniforms()
 {
+	GLuint id = pyramid->shader->GetUniformLocation("model");
 	glm::mat4 model = glm::mat4(1.0);
 
 	model = Matrix::Rotate(model, 45 * (3.14159265f / 180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -162,5 +172,5 @@ void Screen::SetUniforms()
 
 	model = Matrix::Scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 
-	glUniformMatrix4fv(pyramid->shader->GetUniformLocation("model"), 1, GL_FALSE, glm::value_ptr(model));
+	glUniformMatrix4fv(id, 1, GL_FALSE, glm::value_ptr(model));
 }

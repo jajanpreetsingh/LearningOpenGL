@@ -1,3 +1,11 @@
-﻿  Screen.cpp
-E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Source\Screen.cpp(115,65): warning C4305:  'argument': truncation from 'double' to 'float'
+﻿  OpenGLTemplate.cpp
+  Geometry.cpp
+  Shader.cpp
+E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Source\Common\Geometry.cpp(17,20): warning C4018:  '<': signed/unsigned mismatch
+  Tris.cpp
+  Engine.cpp
+  Screen.cpp
+E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Source\Common\Shader.cpp(48,31): warning C4838:  conversion from 'size_t' to 'GLint' requires a narrowing conversion
+  Generating Code...
+E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Source\Screen.cpp(124,65): warning C4305:  'argument': truncation from 'double' to 'float'
   OpenGLTemplate.vcxproj -> E:\Projects\OpenGL\LearningOpenGL\OpenGLTemplate\Debug\OpenGLTemplate.exe

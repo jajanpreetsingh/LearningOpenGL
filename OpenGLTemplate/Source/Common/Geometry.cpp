@@ -127,7 +127,10 @@ Shader* Geometry::ConstructShader()
 
 void Geometry::Draw()
 {
-	shader->UseShaderProgram();
+	if (shader == nullptr)
+	{
+		return;
+	}
 
 	BindVertexArrayHandle();
 	BindIndexBufferHandle();
@@ -139,6 +142,4 @@ void Geometry::Draw()
 	//UnBindBufferDataHandle();
 	UnbindIndexBufferHandle();
 	UnbindVertexArrayHandle();
-
-	shader->UnbindShaderProgram();
 }

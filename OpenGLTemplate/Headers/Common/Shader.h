@@ -36,4 +36,7 @@ private:
 	void AddShaderSourceToMap(GLenum key, std::string source);
 
 	void SetUniformFloat(std::string uniformName, float val);
+	void SetUniformFloat2(std::string uniformName, float val);
+	void SetUniformFloat3(std::string uniformName, float val);
+	void SetUniformFloat4(std::string uniformName, float val);
 };

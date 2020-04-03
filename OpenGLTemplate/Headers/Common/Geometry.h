@@ -40,7 +40,7 @@ public:
 	
 	~Geometry();
 
-//protected:
+protected:
 
 	/// vertex array object, holds the "TYPE" of info about vertex
 	/// can hold multiple vertex buffer objects, for color, normal, position, tangents
