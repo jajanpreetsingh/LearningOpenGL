@@ -2,12 +2,12 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Utils/LoadedAssets.h"
-#include "Screen.h"
+#include <Utils/LoadedAssets.h>
+#include <Screen.h>
 #include <iostream>
-#include "Utils/Matrix/Matrix.h"
-#include "gtc/type_ptr.hpp"
-#include "Utils/Debug.h"
+#include <Utils/Matrix/Matrix.h>
+#include <gtc/type_ptr.hpp>
+#include <Utils/Debug.h>
 
 const unsigned int Screen::WIDTH = 1280;
 const unsigned int Screen::HEIGHT = 720;

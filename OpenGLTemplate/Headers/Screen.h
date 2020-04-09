@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Common/Tris.h"
+#include <Common/Tris.h>
 #include <GLFW/glfw3.h>
-#include "Interfaces/Updatable.h"
+#include <Interfaces/Updatable.h>
 
 class Screen : public Updatable
 {
