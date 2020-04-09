@@ -22,17 +22,17 @@ Tris::Tris(Vec3 a, Vec3 b, Vec3 c)
 
 void Tris::ConstructVertices()
 {
-	vertices.push_back(points[0][0]);
-	vertices.push_back(points[0][1]);
-	vertices.push_back(points[0][2]);
+	vertices.emplace_back(points[0][0]);
+	vertices.emplace_back(points[0][1]);
+	vertices.emplace_back(points[0][2]);
 
-	vertices.push_back(points[1][0]);
-	vertices.push_back(points[1][1]);
-	vertices.push_back(points[1][2]);
+	vertices.emplace_back(points[1][0]);
+	vertices.emplace_back(points[1][1]);
+	vertices.emplace_back(points[1][2]);
 
-	vertices.push_back(points[2][0]);
-	vertices.push_back(points[2][1]);
-	vertices.push_back(points[2][2]);
+	vertices.emplace_back(points[2][0]);
+	vertices.emplace_back(points[2][1]);
+	vertices.emplace_back(points[2][2]);
 
 	BindData();
 

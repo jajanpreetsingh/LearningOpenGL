@@ -1,5 +1,5 @@
-#include "Common/Geometry.h"
-#include "Utils/LoadedAssets.h"
+#include <Common/Geometry.h>
+#include <Utils/LoadedAssets.h>
 
 Geometry::Geometry()
 {
@@ -16,9 +16,9 @@ void Geometry::SetVertices(std::vector<Vec3> points)
 {
 	for (int i = 0; i < points.size(); i++)
 	{
-		vertices.push_back(points[i][0]);//x
-		vertices.push_back(points[i][1]);//y
-		vertices.push_back(points[i][2]);//z
+		vertices.emplace_back(points[i][0]);//x
+		vertices.emplace_back(points[i][1]);//y
+		vertices.emplace_back(points[i][2]);//z
 	}
 }
 
@@ -34,6 +34,7 @@ void Geometry::Update()
 
 Geometry::~Geometry()
 {
+
 }
 
 void Geometry::GenerateIndexBufferHandle()
