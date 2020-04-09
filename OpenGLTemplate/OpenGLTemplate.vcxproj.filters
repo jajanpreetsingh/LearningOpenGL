@@ -75,6 +75,15 @@
     <ClCompile Include="Source\Utils\LoadedAssets.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Common\BufferHandle\DataBufferHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\BufferHandle\IndexBufferHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\BufferHandle\VertexBufferHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Interfaces\Updatable.h">
@@ -115,6 +124,15 @@
     </ClInclude>
     <ClInclude Include="Headers\Utils\Debug.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Common\BufferHandle\VertexBufferHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Common\BufferHandle\IndexBufferHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Common\BufferHandle\DataBufferHandle.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

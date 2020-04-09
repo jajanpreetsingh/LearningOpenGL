@@ -4,9 +4,9 @@ class Vec1
 {
 public:
 
-	Vec1();
-
-	Vec1(float x);
+	Vec1(float x = 0); 
+	
+	float operator[](int i);
 
 	~Vec1();
 

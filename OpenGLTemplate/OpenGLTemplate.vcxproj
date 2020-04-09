@@ -172,6 +172,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLTemplate.cpp" />
+    <ClCompile Include="Source\Common\BufferHandle\DataBufferHandle.cpp" />
+    <ClCompile Include="Source\Common\BufferHandle\IndexBufferHandle.cpp" />
+    <ClCompile Include="Source\Common\BufferHandle\VertexBufferHandle.cpp" />
     <ClCompile Include="Source\Common\Constants.cpp" />
     <ClCompile Include="Source\Common\Geometry.cpp" />
     <ClCompile Include="Source\Common\Shader.cpp" />
@@ -185,6 +188,9 @@
     <ClCompile Include="Source\Utils\Matrix\Matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Common\BufferHandle\DataBufferHandle.h" />
+    <ClInclude Include="Headers\Common\BufferHandle\IndexBufferHandle.h" />
+    <ClInclude Include="Headers\Common\BufferHandle\VertexBufferHandle.h" />
     <ClInclude Include="Headers\Common\Constants.h" />
     <ClInclude Include="Headers\Common\Geometry.h" />
     <ClInclude Include="Headers\Common\Shader.h" />

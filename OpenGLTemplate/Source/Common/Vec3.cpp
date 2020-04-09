@@ -2,10 +2,6 @@
 
 #include "Common/Vec3.h"
 
-Vec3::Vec3() : Vec2(0, 0), z(0)
-{
-}
-
 Vec3::Vec3(float x, float y, float z) : Vec2(x, y), z(x)
 {
 }

@@ -1,10 +1,6 @@
 #pragma once
 
-#include "Common/Vec2.h"
-
-Vec2::Vec2() :Vec1(0), y(0)
-{
-}
+#include <Common/Vec2.h>
 
 Vec2::Vec2(float x, float y) : Vec1(x), y(y)
 {
