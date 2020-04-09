@@ -9,6 +9,10 @@ IndexBufferHandle::IndexBufferHandle(std::vector<GLuint>& data)
 	sizeInBytes = sizeof(GLuint) * indices.size();
 
 	GenerateBuffer();
+
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeInBytes, indices.data(), GL_STATIC_DRAW);
+
+	Unbind();
 }
 
 void IndexBufferHandle::Bind()

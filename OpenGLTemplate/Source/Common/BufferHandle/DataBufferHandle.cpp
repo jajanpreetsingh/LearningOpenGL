@@ -2,7 +2,7 @@
 
 #include <Common/BufferHandle/DataBufferHandle.h>
 
-DataBufferHandle::DataBufferHandle(std::vector<Vec1>& data, int sizePerComp)
+DataBufferHandle::DataBufferHandle(std::vector<Vec3>& data, int sizePerComp)
 {
 	for (size_t i = 0; i < data.size(); i++)
 	{
@@ -19,6 +19,8 @@ DataBufferHandle::DataBufferHandle(std::vector<Vec1>& data, int sizePerComp)
 	Bind();
 
 	glBufferData(GL_ARRAY_BUFFER, sizeInBytes, vertices.data(), GL_STATIC_DRAW);
+
+	Unbind();
 }
 
 void DataBufferHandle::Bind()

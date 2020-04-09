@@ -2,12 +2,12 @@
 
 #include <GL/glew.h>
 #include <vector>
-#include <Common/Vec1.h>
+#include <Common/Vec3.h>
 
 class DataBufferHandle
 {
 public:
-	DataBufferHandle(std::vector<Vec1>& data, int sizePerComp);
+	DataBufferHandle(std::vector<Vec3>& data, int sizePerComp);
 
 	void Bind();
 

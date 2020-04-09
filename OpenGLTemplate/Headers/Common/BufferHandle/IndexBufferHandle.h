@@ -15,9 +15,9 @@ public:
 
 	~IndexBufferHandle();
 
-private:
-
 	std::vector<GLuint> indices;
+
+private:
 
 	int sizeInBytes;
  
